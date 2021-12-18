@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+@keyframes backg-anim {
+  from {
+    -webkit-filter: hue-rotate(-20deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(40deg);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -15,4 +15,5 @@ code {
 .index-main {
   background-color: #1e453e;
   background-image: linear-gradient(180deg, #1e453e 0%, #182c25 74%);
+  min-height: 100vh;
 }

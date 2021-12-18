@@ -6,18 +6,21 @@ import reportWebVitals from "./reportWebVitals";
 import Feed from "./pages/Feed";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import { ChakraProvider } from "@chakra-ui/react";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <div className="index-main">
-        <Header />
-        <Routes>
-          <Route exact path="/" element={<App />} />
-          <Route path="feed" element={<Feed />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <ChakraProvider>
+      <BrowserRouter>
+        <div className="index-main">
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<App />} />
+            <Route path="feed" element={<Feed />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -7,37 +7,44 @@ import "./Header.css";
 
 const Header = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleToggle = () => (isOpen ? onClose() : onOpen());
+  const onToggleClick = () => (isOpen ? onClose() : onOpen());
 
   return (
     <Flex
       as="nav"
-      align="center"
-      justify="space-between"
       wrap="wrap"
-      bg="none"
+      align="center"
+      padding="0 1.5rem 0 1.5rem"
+      justify="space-between"
       color="white"
+      bg="none"
+      padding="1rem"
       {...props}
     >
-      <Flex align="center" mr={5}>
+      <Flex align="center" mr={5} margin={{ base: "auto", md: "" }}>
         <Heading as="h1" size="lg" letterSpacing={"tighter"}>
           SOLC
         </Heading>
       </Flex>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
-        Go
+      <Box
+        fontSize={28}
+        _hover={{ cursor: "pointer" }}
+        display={{ base: "block", md: "none" }}
+        onClick={onToggleClick}
+      >
+        😎
       </Box>
 
       <Stack
         direction={{ base: "column", md: "row" }}
         display={{ base: isOpen ? "block" : "none", md: "flex" }}
-        width={{ base: "full", md: "auto" }}
         alignItems="center"
+        width={{ base: "full", md: "auto" }}
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
       >
-        <Tabs>
+        <Tabs display={{ base: isOpen ? "grid" : "none", md: "block" }}>
           <a className="nav-options-outer">
             <Link className="nav-options" to="/">
               Main

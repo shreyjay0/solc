@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/button";
 import { WalletConnect, WalletDisconnect } from "../utils/wallet";
 export const ConnectButton = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -48,6 +48,7 @@ export const ConnectButton = () => {
       ) : (
         <Button
           size="md"
+          display="block"
           colorScheme="blackAlpha"
           onClick={() => {
             onConnectWallet();
