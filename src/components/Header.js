@@ -42,12 +42,13 @@ const Header = (props) => {
         alignItems="center"
         width={{ base: "full", md: "auto" }}
         flexGrow={1}
+        ml={{ base: 0, md: "2rem" }}
         mt={{ base: 4, md: 0 }}
       >
         <Tabs display={{ base: isOpen ? "grid" : "none", md: "block" }}>
           <a className="nav-options-outer">
             <Link className="nav-options" to="/">
-              Main
+              Home
             </Link>
           </a>
           <a className="nav-options-outer">

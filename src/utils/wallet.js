@@ -1,3 +1,6 @@
+import { alertMsg } from "./AlertMsg";
+import { addressFormat } from "./custom";
+
 const WalletFound = async () => {
   try {
     const { solana } = window;
@@ -7,7 +10,11 @@ const WalletFound = async () => {
       }
     } else {
       console.log("Phantom Wallet Not Detected");
-      alert("Phantom Wallet Not Detected. Please install it first.");
+      alertMsg(
+        "WalletProviderNotFound",
+        "Phantom Wallet Not Detected. Please install it first.",
+        "warning"
+      );
     }
   } catch (err) {
     console.log(err);
@@ -22,7 +29,17 @@ const WalletConnect = async () => {
     }
   } catch (err) {
     if (err.code === 4001) {
-      alert("You have rejected the connection request.");
+      alertMsg(
+        "Connection Failure",
+        "You have rejected the connection request.",
+        "error"
+      );
+    } else {
+      alertMsg(
+        "Error" + err.code,
+        "Something went wrong. Please try again.",
+        "error"
+      );
     }
   }
 };
@@ -31,7 +48,6 @@ const WalletDisconnect = async () => {
   try {
     if (window.phantom.solana.isConnected) {
       await window.phantom.solana.disconnect();
-      alert("You have now been disconnected from the wallet.");
     }
   } catch (err) {
     console.log(err);
