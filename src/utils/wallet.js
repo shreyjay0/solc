@@ -1,5 +1,4 @@
 import { alertMsg } from "./AlertMsg";
-import { addressFormat } from "./custom";
 
 const WalletFound = async () => {
   try {

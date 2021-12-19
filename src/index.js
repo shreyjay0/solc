@@ -7,6 +7,7 @@ import Feed from "./pages/Feed";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { ChakraProvider } from "@chakra-ui/react";
+import About from "./pages/About";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,7 +17,8 @@ ReactDOM.render(
           <Header />
           <Routes>
             <Route exact path="/" element={<App />} />
-            <Route path="feed" element={<Feed />} />
+            <Route exact path="feed" element={<Feed />} />
+            <Route path="about" element={<About />} />
           </Routes>
         </div>
       </BrowserRouter>

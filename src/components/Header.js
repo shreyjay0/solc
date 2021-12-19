@@ -1,5 +1,5 @@
 import { Tabs } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ConnectButton } from "./ConnectButton";
 import { Box, Stack, Heading, Flex, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -8,7 +8,11 @@ import "./Header.css";
 const Header = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const onToggleClick = () => (isOpen ? onClose() : onOpen());
-
+  const [hdrBg, sethdrBg] = useState(true);
+  useEffect(() => {
+    const bgcol = window.location.pathname == "/" ? "Home" : "";
+    sethdrBg(bgcol);
+  }, []);
   return (
     <Flex
       as="nav"
@@ -17,13 +21,21 @@ const Header = (props) => {
       padding="0 1.5rem 0 1.5rem"
       justify="space-between"
       color="white"
-      bg="none"
+      bg="#ffffff14"
+      position="sticky"
+      top="0"
+      zIndex="1"
       padding="1rem"
       {...props}
     >
-      <Flex align="center" mr={5} margin={{ base: "auto", md: "" }}>
+      <Flex
+        className="logoname"
+        align="center"
+        mr={5}
+        margin={{ base: "auto", md: "" }}
+      >
         <Heading as="h1" size="lg" letterSpacing={"tighter"}>
-          SOLC
+          <Link to="/">SOLC</Link>
         </Heading>
       </Flex>
 

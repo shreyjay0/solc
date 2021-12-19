@@ -15,7 +15,7 @@ function App() {
     };
   }, []);
   return (
-    <div className="App">
+    <div className="App" style={{ position: "relative", top: -60, zIndex: 0 }}>
       <header className="App-header">
         <Indx />
       </header>

@@ -1,4 +1,4 @@
-import { Box, Code, Heading, Text } from "@chakra-ui/react";
+import { Box, Badge, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Indx = () => {
@@ -21,8 +21,15 @@ const Indx = () => {
         </Text>
         <a>
           Go to the{" "}
-          <Link to="/feed">
-            <Code className="link-to-feed-main">feed</Code>
+          <Link to="/feed" style={{ position: "relative", bottom: "2px" }}>
+            <Badge
+              className="link-to-feed-main"
+              fontSize={20}
+              color="#b3f5ca"
+              bg="#08483a"
+            >
+              feed
+            </Badge>
           </Link>{" "}
           now!
         </a>

@@ -7,6 +7,23 @@
   pointer-events: none;
 }
 
+.feed-item-body {
+  color: white;
+  padding: 1.5rem;
+  background: #1e453b;
+  border-radius: 6px;
+  margin: 2rem 5rem 2rem 5rem;
+  box-shadow: aliceblue;
+  transition: all 2s ease-out 0s;
+  transition: transform -0.9s ease 0s;
+  transition-property: transform;
+  transition-duration: 0s;
+  animation: 0.4s 0.15s backwards a;
+  box-shadow: 0 10px 30px 14px rgba(3, 34, 17, 0.15);
+  transition-duration: 0.2s;
+  transition-property: all;
+}
+
 @keyframes backg-anim {
   from {
     -webkit-filter: hue-rotate(-20deg);
