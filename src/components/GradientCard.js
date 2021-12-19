@@ -1,7 +1,7 @@
 import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 
 const GradientCard = (props) => {
-  const { title, content } = props.gradData;
+  const { title, content, gradOpt } = props.gradData;
   console.log(props);
   return (
     <Box>
@@ -11,7 +11,7 @@ const GradientCard = (props) => {
         mt={40}
         margin={"3em"}
         color="white"
-        backgroundImage="linear-gradient(80deg, rgba(37, 77, 233, 0.5) -5.49%, rgba(40, 244, 129, 0.5) 81.15%, rgba(64, 255, 58, 0.45) 104.99%)"
+        backgroundImage={gradOpt}
         borderRadius="8"
       >
         <Heading textAlign="center" mb="5" size={"3xl"}>
