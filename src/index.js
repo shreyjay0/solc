@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { ChakraProvider } from "@chakra-ui/react";
 import About from "./pages/About";
+import AddPost from "./pages/AddPost";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
           <Routes>
             <Route exact path="/" element={<App />} />
             <Route exact path="feed" element={<Feed />} />
+            <Route exact path="add-post" element={<AddPost />} />
             <Route path="about" element={<About />} />
           </Routes>
         </div>

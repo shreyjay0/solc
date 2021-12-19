@@ -7,6 +7,8 @@
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.0.0-beta3",
+    "@fortawesome/free-solid-svg-icons": "^6.0.0-beta3",
     "@solana/web3.js": "^1.31.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

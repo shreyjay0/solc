@@ -1,10 +1,17 @@
 import { Tabs } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ConnectButton } from "./ConnectButton";
-import { Box, Stack, Heading, Flex, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Stack,
+  Heading,
+  Flex,
+  useDisclosure,
+  Image,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-
+import Logo from "../assets/solclogo.svg";
 const Header = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const onToggleClick = () => (isOpen ? onClose() : onOpen());
@@ -34,6 +41,8 @@ const Header = (props) => {
         mr={5}
         margin={{ base: "auto", md: "" }}
       >
+        {" "}
+        <Image src={Logo} maxW={34} mr={5}></Image>
         <Heading as="h1" size="lg" letterSpacing={"tighter"}>
           <Link to="/">SOLC</Link>
         </Heading>
