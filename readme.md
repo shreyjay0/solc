@@ -1,5 +1,7 @@
 # Getting Started with SOLC
 
+Share your thoughts with the world over decentralised web anonymously, securely and also enjoy solana's blazingly fast speed.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
