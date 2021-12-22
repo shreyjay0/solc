@@ -20,6 +20,7 @@ const LargeInfoCard = (props) => {
         justifyContent="center"
         textAlign="center"
         height="200px"
+        borderRadius={8}
         bg="rgba(250, 250, 250, 0.16) none repeat scroll 0% 0%"
       >
         <AlertIcon boxSize="40px" mr={0} />

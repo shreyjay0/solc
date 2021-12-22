@@ -1,0 +1,95 @@
+{
+  "version": "0.1.0",
+  "name": "main1",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "pgAcc",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "newPost",
+      "accounts": [
+        {
+          "name": "pgAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "postContent",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "PgAcc",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "postCount",
+            "type": "u64"
+          },
+          {
+            "name": "allPosts",
+            "type": {
+              "vec": {
+                "defined": "PostStruct"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "PostStruct",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "postContent",
+            "type": "string"
+          },
+          {
+            "name": "postId",
+            "type": "i32"
+          },
+          {
+            "name": "postAuthor",
+            "type": "publicKey"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "3da9USJv9BBFdnuWQsMxSE4vArxS1aEzXBnFsBaWdkKh"
+  }
+}
