@@ -1,20 +1,43 @@
 const anc = require("@project-serum/anchor");
-
+const { SystemProgram } = anc.web3;
 const main = async () => {
   console.log("Testing main1.js");
-  // anc.setAnchor(anc.anc);
-  // const solana = await anc.getSolana();
-  // const solanaClient = await anc.getSolanaClient();
-  // const solanaWallet = await anc.getSolanaWallet();
-  // const solanaWalletClient = await anc.getSolanaWalletClient();
-  // anc.setProvider(anc.providers.solana);
-  anc.setProvider(anc.Provider.env());
-  const program = anc.workspace.Main1;
-  const test_txn = await program.rpc.initialize({});
+  ancProvider = anc.Provider.env();
+  anc.setProvider(ancProvider);
+  const prgm = anc.workspace.Main1;
+  const pgAcc = anc.web3.Keypair.generate();
 
+  const test_txn = await prgm.rpc.initialize({
+    accounts: {
+      pgAcc: pgAcc.publicKey,
+      systemProgram: SystemProgram.programId,
+      user: ancProvider.wallet.publicKey,
+    },
+    fee: {
+      // fee for the transaction  (in lamports)
+      lamports: 1,
+    },
+    signers: [pgAcc],
+  });
+  const acc = await prgm.account.pgAcc.fetch(pgAcc.publicKey);
+  const count_post = acc.postCount;
+  console.log("PgAcc Data: ", acc);
+  console.log("Total post on here initally: ", count_post.toString());
   console.log(
     "Transaction success. Visit: https://explorer.solana.com/tx/" + test_txn
   );
+  const txnNewPost = await prgm.rpc.newPost("Hello World", {
+    accounts: {
+      pgAcc: pgAcc.publicKey,
+      user: ancProvider.wallet.publicKey,
+    },
+  });
+  const accAfterTxn = await prgm.account.pgAcc.fetch(pgAcc.publicKey);
+  console.log(
+    "Total post on here after txn: ",
+    accAfterTxn.postCount.toString()
+  );
+  console.log("your posts 👀", accAfterTxn.allPosts);
 };
 
 const sndtxn = async () => {
