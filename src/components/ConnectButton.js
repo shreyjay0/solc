@@ -4,16 +4,17 @@ import { WalletConnect, WalletDisconnect } from "../utils/wallet";
 import { alertMsg } from "../utils/AlertMsg";
 import { addressAsLink, addressFormat } from "../utils/custom";
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
-import solidl from "../solidl.json";
+import solidl from "../config/solidl.json";
 import { Program, Provider, web3 } from "@project-serum/anchor";
-
+import kp from "../config/kp/kp.json";
 const { SystemProgram, Keypair } = web3;
 
 const network = clusterApiUrl("devnet"); //devnet for dev purpose
 const opt = {
   preflightCommitment: "processed",
 };
-let pgAcc = Keypair.generate();
+const secretK = new Uint8Array(Object.values(kp._keypair.secretKey));
+const pgAcc = web3.Keypair.fromSecretKey(secretK);
 const programID = new PublicKey(solidl.metadata.address);
 
 const getAncProvider = () => {
@@ -46,7 +47,7 @@ export const ConnectButton = () => {
       console.log();
       setallPosts(account.allPosts);
     } catch (err) {
-      alertMsg("Fetch error", "Posts couldn't be fetched." + err, "error");
+      alertMsg("Fetch error", "Posts couldn't be fetched. " + err, "error");
       setallPosts(null);
     }
   };
@@ -72,7 +73,8 @@ export const ConnectButton = () => {
           addressAsLink(pgAcc.publicKey.toString()),
         "success"
       );
-      console.log(pgAcc.publicKey.toString());
+
+      console.log(addressAsLink(pgAcc.publicKey.toString()));
 
       await getAllPosts();
     } catch (err) {

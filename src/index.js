@@ -10,7 +10,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import About from "./pages/About";
 import AddPost from "./pages/AddPost";
 import { Footer } from "./components/Footer";
-import solidl from "./solidl.json";
+import solidl from "./config/solidl.json";
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
