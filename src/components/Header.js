@@ -20,6 +20,7 @@ const Header = (props) => {
     const bgcol = window.location.pathname == "/" ? "Home" : "";
     sethdrBg(bgcol);
   }, []);
+
   return (
     <Flex
       as="nav"

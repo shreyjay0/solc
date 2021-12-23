@@ -9,7 +9,8 @@ import Header from "./components/Header";
 import { ChakraProvider } from "@chakra-ui/react";
 import About from "./pages/About";
 import AddPost from "./pages/AddPost";
-
+import { Footer } from "./components/Footer";
+import solidl from "./solidl.json";
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route exact path="add-post" element={<AddPost />} />
             <Route path="about" element={<About />} />
           </Routes>
+          <Footer />
         </div>
       </BrowserRouter>
     </ChakraProvider>
