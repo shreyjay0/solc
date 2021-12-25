@@ -1,10 +1,12 @@
-import { Heading, Stack } from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import FeedBox from "../components/FeedBox";
 import LargeInfoCard from "../components/LargeInfoCard";
 
 const Feed = () => {
   const [isConnected, setisConnected] = useState(false);
+  const [allPosts, setallPosts] = useState(["ASd", "asd", "ASd"]);
+
   const msgOnNotConnected = {
     heading: "Not logged in!",
     description:
@@ -47,7 +49,9 @@ const Feed = () => {
             Feed
           </Heading>
           <Stack className="feed main">
-            <FeedBox />
+            {allPosts.map((post) => (
+              <FeedBox />
+            ))}
           </Stack>
         </div>
       )}

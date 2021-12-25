@@ -1,15 +1,16 @@
 import { Box, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import verifiedLogo from "../assets/verified.svg";
-const FeedBox = () => {
+const FeedBox = (props) => {
+  const { address, content, username, time } = props;
   return (
-    <Box maxW="70%" margin="auto">
+    <Box maxW="50em" margin="auto !important">
       <Stack className="feed-item">
         <Box className="feed-item-header">
           <Box className="feed-item-header-title">
             <h2>
               <HStack>
                 <Heading as="h5" size={"md"} flexDirection={"row"}>
-                  Anonymscape
+                  {address}
                 </Heading>
                 <Image
                   src={verifiedLogo}
